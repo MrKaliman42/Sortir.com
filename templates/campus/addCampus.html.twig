@@ -1,0 +1,10 @@
+    {% extends 'base.html.twig' %}
+
+    {% block main %}
+        {{ form_start(campusForm) }}
+        {{ form_widget(campusForm) }}
+        <a class="btn" href="{{ path('campus') }}" role="button">
+            <button type="submit" class="btn btn-dark">Ajouter un campus</button>
+        </a>
+        {{ form_end(campusForm) }}
+    {% endblock %}

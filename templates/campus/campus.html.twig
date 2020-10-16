@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <br><h2>Liste des campus</h2>
+    <br><br>
+    <div class="container">
+    <div class="col-md-4 ml-auto mr-auto">
+    <div class="card bg-transparent text-whrite align-items-center" style="height: auto; border-width: 4px; ">
+    <br>
+    {% for campus in campuses %}
+       <div class="campus">
+           <div class="form-group row">
+           {{ campus.campusName }}  |
+               <p> |  <a href="{{ path('modifyCampus', {'id': campus.id}) }}"> Modifier</a>
+                     <a href="{{ path('deleteCampus', {'id': campus.id}) }}"> | Supprimer</a>
+               </p>
+           </div>
+       </div>
+    {% endfor %}
+    <a class="btn btn-dark" href="{{ path('addCampus') }}" role="button" >
+        Ajouter un campus
+    </a>
+    </div>
+    </div>
+    </div>
+
+{% endblock %}

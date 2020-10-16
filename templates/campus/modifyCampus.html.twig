@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    {{ form_start(modifyForm) }}
+    {{ form_widget(modifyForm) }}
+    <a class="btn" href="{{ path('campus') }}" role="button">
+        <button type="submit" class="btn btn-dark">Modifier un campus</button>
+    </a>
+    {{ form_end(modifyForm) }}
+{% endblock %}

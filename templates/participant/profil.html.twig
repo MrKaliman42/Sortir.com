@@ -1,0 +1,25 @@
+{% extends 'base.html.twig'%}
+{% block main %}
+   <h1>profil</h1>
+   <div class="container">
+      <div class="card">
+         <img src="{{ asset('img/avatar1.jpg') }}"
+         alt="Person" class="card__image">
+            <h6 class=""card__name>{{ profile.username }}</h6>
+         <ul class="social-icons">
+            <li><a href=""><i class="fa fa-instagram"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="#"><i class="fa fa-codepen"></i></a></li>
+         </ul>
+         <ul class="profil">
+            <li>Prénom du particpant</li>
+            <li>Nom du particpant</li>
+            <li>Telephone du particpant</li>
+            <li>Email du particpant</li>
+            <li>Campus du particpant</li>
+         </ul>
+         <a href="{{ path('home') }}" ><button class="btn draw-border">Retour</button></a>
+      </div>
+   </div>
+{% endblock %}

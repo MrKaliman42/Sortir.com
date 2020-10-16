@@ -1,0 +1,30 @@
+# config/packages/security.yaml
+security:
+    encoders:
+        App\Entity\Participant:
+            algorithm: bcrypt
+    # ...
+    providers:
+        our_db_provider:
+            entity:
+                class: App\Entity\Participant
+                # if you're using multiple entity managers
+                # manager_name: customer
+    firewalls:
+        main:
+            pattern: ^/
+            http_basic: ~
+            anonymous: ~
+            provider: our_db_provider
+            guard:
+                authenticators:
+                    - App\Security\UserAuthenticator
+            logout:
+                path: app_logout
+                # where to redirect after logout
+                # target: app_any_route
+
+    access_control:
+        - { path: ^/login, roles: IS_ANONYMOUS }
+        - { path: ^/, roles: ROLE_USER }
+        - { path: ^/admin, roles: ROLE_ADMIN }
