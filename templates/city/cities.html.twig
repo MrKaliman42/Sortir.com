@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <br><h2>Liste des campus</h2>
+    <br><br>
+    <div class="container">
+        <div class="col-md-4 ml-auto mr-auto">
+            <div class="card bg-transparent text-whrite align-items-center" style="height: auto; border-width: 4px; ">
+                <br>
+                {% for city in cities %}
+                    <div class="cities">
+                        <div class="form-group row">
+                            {{ cities.cityName }}  |
+                            <p> |  <a href=""> Modifier</a>
+                                <a href=""> | Supprimer</a>
+                            </p>
+                        </div>
+                    </div>
+                {% endfor %}
+                <a class="btn btn-dark" href="{{ path('addCampus') }}" role="button" >
+                    Ajouter un campus
+                </a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

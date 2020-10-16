@@ -2,7 +2,10 @@
 
 namespace App\Controller;
 
+use App\Entity\City;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class CityController extends AbstractController
@@ -14,14 +17,14 @@ class CityController extends AbstractController
     {
         /**Affiche les campus de la base de donnée **/
 
-        $cityRep = $this->getDoctrine()->getRepository(Campus::class);
-        $cityes = $cityRep->findAll();
+        $cityRep = $this->getDoctrine()->getRepository(City::class);
+        $cities = $cityRep->findAll();
 
 
 
 
-        return $this->render('campus/campus.html.twig', [
-            "campuses"=>$cityes,
+        return $this->render('city/cities.html.twig', [
+            "cities"=>$cities,
         ]);
     }
 }
